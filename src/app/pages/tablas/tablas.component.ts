@@ -42,7 +42,7 @@ export class TablasComponent {
 
   dataSource = new MatTableDataSource(this.estudiantes);
 
-  displayedColumns: string[] = ['id','nombreCompleto','fecha_registro','eliminar'];
+  displayedColumns: string[] = ['id','nombreCompleto','fecha_registro','modificar','eliminar'];
 
   aplicarFiltro(ev: Event): void {
     console.log(ev);
@@ -73,4 +73,29 @@ export class TablasComponent {
     this.estudiantes = this.estudiantes.filter(e => e.id !== estudiante.id);
     this.dataSource = new MatTableDataSource(this.estudiantes);
   }
+
+
+  abrirEdicionEstudiante(estudiante: Estudiante): void {
+    const dialog = this.matDialog.open(AbmAlumnosComponent, {
+      data: {
+        estudiante: estudiante,
+        esEdicion: true
+      }
+    });
+    dialog.afterClosed().subscribe((valor) => {
+      if (valor) {
+        const index = this.estudiantes.findIndex(e => e.id === estudiante.id);
+        this.estudiantes[index] = {
+          ...valor,
+          fecha_registro: new Date(),
+          id: estudiante.id,
+        };
+        this.dataSource.data = this.estudiantes;
+      }
+    });
+  }
+
+
+
+  
 }
