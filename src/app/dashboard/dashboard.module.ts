@@ -6,8 +6,7 @@ import { ToolbarModule } from '../toolbar/toolbar.module';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import { TablasModule } from '../pages/tablas/tablas.module';
-import { FormulariosModule } from '../pages/formularios/formularios.module';
-import { FormulariosComponent } from '../pages/formularios/formularios.component';
+
 
 @NgModule({
   declarations: [
@@ -20,11 +19,11 @@ import { FormulariosComponent } from '../pages/formularios/formularios.component
     MatSidenavModule,
     MatButtonModule,
     TablasModule,
-    FormulariosModule
+   
   ],
   exports: [
-    DashboardComponent,
-    FormulariosComponent
+    DashboardComponent
+    
   ]
 })
 export class DashboardModule { }

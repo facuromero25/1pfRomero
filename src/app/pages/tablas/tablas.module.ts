@@ -7,7 +7,7 @@ import { MatInputModule} from '@angular/material/input'
 import { SharedModule } from 'src/app/shared/shared.module';
 import {  MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { FormulariosModule } from '../formularios/formularios.module';
+
 import { AbmAlumnosComponent } from './abm-alumnos/abm-alumnos.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -27,7 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     MatIconModule,
     MatButtonModule,
-    FormulariosModule,
+ 
     MatDialogModule,
     ReactiveFormsModule
    
