@@ -42,7 +42,7 @@ export class TablasComponent {
 
   dataSource = new MatTableDataSource(this.estudiantes);
 
-  displayedColumns: string[] = ['id','nombreCompleto','fecha_registro'];
+  displayedColumns: string[] = ['id','nombreCompleto','fecha_registro','eliminar'];
 
   aplicarFiltro(ev: Event): void {
     console.log(ev);
@@ -69,7 +69,8 @@ export class TablasComponent {
     })
   }
 
-  eliminarAlumno(){
-    
+  eliminarEstudiante(estudiante: Estudiante) {
+    this.estudiantes = this.estudiantes.filter(e => e.id !== estudiante.id);
+    this.dataSource = new MatTableDataSource(this.estudiantes);
   }
 }
